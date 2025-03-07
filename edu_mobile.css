@@ -20,7 +20,7 @@
       margin-bottom: 40px;
       position: relative;
       border-top: 3px solid #ddd;
-      padding-top: 30px;
+      padding-top: 20px;
     }
   
     .timeline-item1 {
@@ -159,7 +159,7 @@
       max-width: 90%;
     }
   
-    /* Hide timeline dots if not needed on mobile */
+    
     .timeline-item .dot {
       display: none;
     }

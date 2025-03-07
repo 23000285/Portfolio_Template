@@ -7,600 +7,7 @@
   <title>Business Agency</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="edu_mobile.css">
-  <style>
-    html,
-    body {
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #f8f9fc;
-      text-align: center;
-      scroll-behavior: smooth;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    header nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-      background: #ffffff;
-      color: black;
-      position: relative;
-    }
-
-    .logo {
-      font-size: 24px;
-      color: #b636ff;
-      font-weight: bold;
-    }
-
-    .menu-toggle {
-      font-size: 30px;
-      cursor: pointer;
-      display: none;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-
-    .nav-links li a {
-      color: #8c959f;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .hero {
-      position: relative;
-      height: 100vh;
-      background: url('My profile 1.webp') no-repeat center center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-    }
-
-    .overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    .hero-text {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: bold;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-    }
-
-    .btn {
-      padding: 15px;
-      background-origin: padding-box;
-      background: #8c52ff;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
-    /* Responsive Navigation */
-    @media screen and (max-width: 768px) {
-      .nav-links {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 250px;
-        height: 100vh;
-        background: #ffffff;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 50px 20px;
-        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-        transition: right 0.3s ease-in-out;
-        z-index: 10;
-        /* Ensure it stays on top */
-      }
-
-      .nav-links.active {
-        right: 0;
-      }
-
-      .nav-links li {
-        text-align: left;
-        padding: 10px 0;
-      }
-
-      .menu-toggle {
-        display: block;
-        z-index: 100;
-      }
-
-      .career-entry::before {
-        left: 160px;
-        transform: translateX(-50%);
-      }
-
-      .career-timeline::after {
-        left: 10px;
-        transform: none;
-      }
-
-      .career-entry {
-        width: 100%;
-        left: 0;
-        text-align: left;
-        padding-left: 30px;
-      }
-
-      .career-entry.right-align {
-        left: 52.1%;
-        text-align: right;
-      }
-    }
-
-    /* About Section */
-    #home h2 {
-      margin: 40px 0 20px;
-      text-transform: uppercase;
-      color: #333;
-    }
-
-    .about-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 50px;
-      flex-wrap: wrap;
-    }
-
-    .about-content {
-      flex: 1 1 300px;
-      padding: 20px;
-      text-align: left;
-    }
-
-    .about-content p {
-      color: #555;
-      line-height: 1.6;
-      margin-bottom: 15px;
-    }
-
-    .bold-text {
-      font-weight: bold;
-      color: #222;
-    }
-
-    .highlight {
-      font-weight: bold;
-      color: #2b2d42;
-    }
-
-    .about-info {
-      margin-top: 20px;
-      border-top: 1px solid #ccc;
-      padding-top: 15px;
-      display: flex;
-      justify-content: space-between;
-      color: #666;
-      font-size: 14px;
-      flex-wrap: wrap;
-    }
-
-    .profile-card {
-      flex: 0 0 250px;
-      /* Fixed width for smaller image */
-      max-width: 250px;
-      background: white;
-      text-align: center;
-      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      overflow: hidden;
-      margin: 20px;
-    }
-
-    .profile-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    
-
-    /* Skills Section */
-    #skills {
-      padding: 50px 20px;
-      background: #f8f9fc;
-    }
-
-    #skills .container {
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    #skills h2 {
-      margin-bottom: 20px;
-      font-size: 24px;
-    }
-
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px 30px;
-      padding: 0 20px;
-    }
-
-    .skill {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .skill-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: #333;
-      flex: 1;
-      text-align: left;
-    }
-
-    .skill-bar {
-      flex: 2;
-      height: 8px;
-      background: #ddd;
-      border-radius: 5px;
-      margin: 0 10px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .skill-bar span {
-      display: block;
-      height: 100%;
-      border-radius: 5px;
-      background: linear-gradient(to right, #d946ef, #9333ea);
-    }
-
-    .skill-percent {
-      font-size: 14px;
-      font-weight: 600;
-      color: #333;
-    }
-
-    /* Experience Section */
-    #experience {
-      padding: 50px 20px;
-      background: #fff;
-    }
-
-    .experience-container {
-      max-width: 1200px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .experience-heading {
-      font-size: 24px;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 50px;
-      text-transform: uppercase;
-    }
-
-    .career-timeline {
-      position: relative;
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .career-timeline::after {
-      content: '';
-      position: absolute;
-      width: 4px;
-      background: #d946ef;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .career-entry {
-      position: relative;
-      width: 50%;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    .career-entry.left-align {
-      left: 0;
-      text-align: left;
-    }
-
-    .career-entry.right-align {
-      left: 50%;
-      text-align: right;
-    }
-
-    .career-entry::before {
-      content: '';
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      background: #d946ef;
-      border-radius: 50%;
-      top: 30px;
-    }
-
-    .career-entry.left-align::before {
-      right: -7px;
-    }
-
-    .career-entry.right-align::before {
-      left: -7px;
-    }
-
-    .career-content {
-      background: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      width: 90%;
-      margin: auto;
-    }
-
-    .career-date {
-      font-size: 14px;
-      font-weight: 600;
-      color: #333;
-    }
-
-    .career-position {
-      font-size: 18px;
-      font-weight: 600;
-      color: #111;
-      margin: 5px 0;
-    }
-
-    .career-company {
-      font-size: 14px;
-      font-weight: 600;
-      color: #555;
-    }
-
-    .career-description {
-      font-size: 13px;
-      color: #777;
-      margin-top: 10px;
-      line-height: 1.5;
-    }
-
-    /* Profiles Section */
-    #profile {
-      padding: 50px 20px;
-      background: #f8f9fc;
-    }
-
-    #profile .container {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    #profile h2 {
-      margin-bottom: 20px;
-      font-size: 22px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 30px;
-      padding: 20px;
-      background: #fff;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
-
-    .profile-item {
-      text-align: center;
-      color: #666;
-    }
-
-    .profile-item i {
-      font-size: 30px;
-      margin-bottom: 10px;
-      display: block;
-      color: #333;
-    }
-
-    /* Portfolio Section */
-    #portfolio {
-      padding: 50px 20px;
-      background: #fff;
-    }
-
-    #portfolio header h1 {
-      font-size: 28px;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .portfolio img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Clients Section */
-    #clients {
-      padding: 50px 20px;
-      background: #f8f9fc;
-    }
-
-    #clients h2 {
-      font-size: 22px;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 30px;
-    }
-
-    .clients-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
-
-    .clients-container img {
-      max-width: 120px;
-      filter: grayscale(100%);
-      transition: 0.3s ease-in-out;
-    }
-
-    .clients-container img:hover {
-      filter: grayscale(0%);
-    }
-
-    /* Contact Section */
-    #contact {
-      padding: 50px 20px;
-      background: #fff;
-    }
-
-    .contact-section {
-      width: 100%;
-      max-width: 1200px;
-      margin: 50px auto;
-    }
-
-    .contact-container {
-      display: flex;
-      justify-content: space-between;
-      background-color: #ffffff;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-      flex-wrap: wrap;
-    }
-
-    .contact-form {
-      flex: 1 1 300px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin: 10px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-
-    .contact-form button {
-      background-color: #7D29E2;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .contact-form button:hover {
-      background-color: #5B1DAB;
-    }
-
-    .contact-info {
-      flex: 1 1 250px;
-      text-align: left;
-      margin: 10px;
-    }
-
-    .contact-info h3 {
-      font-size: 18px;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .contact-info p {
-      font-size: 14px;
-      color: #666;
-      margin: 5px 0;
-    }
-
-    .social-icons {
-      margin-top: 15px;
-    }
-
-    .social-icons a {
-      display: inline-block;
-      margin-right: 10px;
-      text-decoration: none;
-      font-size: 18px;
-      color: #666;
-    }
-
-    .social-icons a:hover {
-      color: #7D29E2;
-    }
-
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      .nav-links {
-        flex-direction: column;
-        background: #fff;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 100%;
-        padding: 20px;
-        display: none;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .about-container,
-      .contact-container,
-
-      .grid {
-        flex-direction: column;
-        padding: 20px;
-      }
-
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -702,7 +109,8 @@
         <div class="bottom">
           <h4>UNIVERSITY OF NORTH CAROLINA</h4>
           <p>North Carolina, USA</p>
-          <p>Pain itself is pain in being reprimanded in pleasure, wanting to be a hair of pain in the hope of nothing.</p>
+          <p>Pain itself is pain in being reprimanded in pleasure, wanting to be a hair of pain in the hope of nothing.
+          </p>
         </div>
       </div>
       <div class="timeline-item">
@@ -710,7 +118,8 @@
         <div class="bottom">
           <h4>UNIVERSITY OF NORTH CAROLINA</h4>
           <p>North Carolina, USA</p>
-          <p>Pain itself is pain in being reprimanded in pleasure, wanting to be a hair of pain in the hope of nothing.</p>
+          <p>Pain itself is pain in being reprimanded in pleasure, wanting to be a hair of pain in the hope of nothing.
+          </p>
         </div>
       </div>
       <div class="timeline-item">
@@ -718,7 +127,8 @@
         <div class="bottom">
           <h4>UNIVERSITY OF BOLTON</h4>
           <p>Bolton, United Kingdom</p>
-          <p>Pain itself is pain in being reprimanded in pleasure, wanting to be a hair of pain in the hope of nothing.</p>
+          <p>Pain itself is pain in being reprimanded in pleasure, wanting to be a hair of pain in the hope of nothing.
+          </p>
         </div>
       </div>
     </div>
@@ -773,59 +183,63 @@
     </div>
   </section>
 
-  <!-- Experience Section -->
   <section id="experience">
     <div class="experience-container">
       <h2 class="experience-heading">Experience</h2>
-      <div class="career-timeline">
-        <div class="career-entry left-align">
-          <div class="career-content">
+      <div class="vertical-timeline">
+        <div class="timeline-item left">
+          <div class="timeline-content">
             <span class="career-date">2018 - Present</span>
-            <div class="career-position">Creative Director</div>
-            <div class="career-company">HOPLONY TECH LIMITED</div>
-            <div class="career-description">Newyork, USA</div>
-            <div class="career-description">Pain itself is pain in being reprimanded in pleasure, wanting to be a hair
-              of pain in the hope of nothing.</div>
+            <h3 class="career-position">Creative Director</h3>
+            <h4 class="career-company">HOPLONY TECH LIMITED</h4>
+            <p class="career-location">Newyork, USA</p>
+            <p class="career-description">
+              Pain itself is pain in being reprimanded in pleasure, wanting to be a hair of pain in the hope of nothing.
+            </p>
           </div>
         </div>
-        <div class="career-entry right-align">
-          <div class="career-content">
+        <div class="timeline-item right">
+          <div class="timeline-content">
             <span class="career-date">2016 - 2018</span>
-            <div class="career-position">Associate Design Director</div>
-            <div class="career-company">HOPLONY TECH LIMITED</div>
-            <div class="career-description">Newyork, USA</div>
-            <div class="career-description">Pain itself is pain in being reprimanded in pleasure, wanting to be a hair
-              of pain in the hope of nothing.</div>
+            <h3 class="career-position">Associate Design Director</h3>
+            <h4 class="career-company">HOPLONY TECH LIMITED</h4>
+            <p class="career-location">Newyork, USA</p>
+            <p class="career-description">
+              Pain itself is pain in being reprimanded in pleasure, wanting to be a hair of pain in the hope of nothing.
+            </p>
           </div>
         </div>
-        <div class="career-entry left-align">
-          <div class="career-content">
+        <div class="timeline-item left">
+          <div class="timeline-content">
             <span class="career-date">2013 - 2016</span>
-            <div class="career-position">Senior UI/UX Designer</div>
-            <div class="career-company">HOPLONY TECH LIMITED</div>
-            <div class="career-description">Newyork, USA</div>
-            <div class="career-description">Pain itself is pain in being reprimanded in pleasure, wanting to be a hair
-              of pain in the hope of nothing.</div>
+            <h3 class="career-position">Senior UI/UX Designer</h3>
+            <h4 class="career-company">HOPLONY TECH LIMITED</h4>
+            <p class="career-location">Newyork, USA</p>
+            <p class="career-description">
+              Pain itself is pain in being reprimanded in pleasure, wanting to be a hair of pain in the hope of nothing.
+            </p>
           </div>
         </div>
-        <div class="career-entry right-align">
-          <div class="career-content">
+        <div class="timeline-item right">
+          <div class="timeline-content">
             <span class="career-date">2012 - 2013</span>
-            <div class="career-position">UI/UX Designer</div>
-            <div class="career-company">HOPLONY TECH LIMITED</div>
-            <div class="career-description">Newyork, USA</div>
-            <div class="career-description">Pain itself is pain in being reprimanded in pleasure, wanting to be a hair
-              of pain in the hope of nothing.</div>
+            <h3 class="career-position">UI/UX Designer</h3>
+            <h4 class="career-company">HOPLONY TECH LIMITED</h4>
+            <p class="career-location">Newyork, USA</p>
+            <p class="career-description">
+              Pain itself is pain in being reprimanded in pleasure, wanting to be a hair of pain in the hope of nothing.
+            </p>
           </div>
         </div>
-        <div class="career-entry left-align">
-          <div class="career-content">
+        <div class="timeline-item left">
+          <div class="timeline-content">
             <span class="career-date">2010 - 2012</span>
-            <div class="career-position">Frontend Developer</div>
-            <div class="career-company">HOPLONY TECH LIMITED</div>
-            <div class="career-description">Newyork, USA</div>
-            <div class="career-description">Pain itself is pain in being reprimanded in pleasure, wanting to be a hair
-              of pain in the hope of nothing.</div>
+            <h3 class="career-position">Frontend Developer</h3>
+            <h4 class="career-company">HOPLONY TECH LIMITED</h4>
+            <p class="career-location">Newyork, USA</p>
+            <p class="career-description">
+              Pain itself is pain in being reprimanded in pleasure, wanting to be a hair of pain in the hope of nothing.
+            </p>
           </div>
         </div>
       </div>
@@ -926,6 +340,9 @@
     </div>
   </section>
 
+  <footer id="site-footer">
+    <p>© 2025 My Portfolio. All rights reserved.</p>
+  </footer>
 
 </body>
 
